@@ -1,0 +1,19 @@
+.wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.timer-block {
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+
+    &_timer {
+        width: 100%;
+        color:teal;
+    }
+}
+
+.list_item {
+    margin-right: 10px;
+}
