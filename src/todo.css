@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: burlywood;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.list-header_item {
+  margin: 0 20px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  background-color: cornflowerblue;
+}
+
+.input-place {
+  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input-place .label {
+  color: black;
+  font-size: 25px;
+  margin-right: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input-place .input {
+  min-width: 700px;
+  max-width: auto;
+  min-height: 30px;
+  font-size: 20px;
+  background-color: cornflowerblue;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.footer-list {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.footer-list_item {
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.selected {
+  background-color: cornflowerblue;
+}
+
+.item {
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+/*# sourceMappingURL=todo.css.map */

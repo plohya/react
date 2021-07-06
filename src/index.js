@@ -1,11 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// import App from './App';
+import App from './ToDo';
 
 ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
+
+
+
+
+
+
+
+
+
+
+
 
 // text example rect
 // const name = prompt('enter your name');
