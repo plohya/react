@@ -1,176 +1,116 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
-import App from './ToDo';
+import './index.css';
+
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext,
+    });
+  }
+
+  renderSquare(i) {
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
+  }
+
+  render() {
+    const winner = calculateWinner(this.state.squares);
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    } else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    }
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
 
 ReactDOM.render(
-  <App />,
+  <Game />,
   document.getElementById('root')
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-// text example rect
-// const name = prompt('enter your name');
-
-// function shit(name) {
-//   if(name === 'Jena') {
-//     return name + ' hate you';
-//   } else {
-//     return name;
-//   }
-// };
-
-// const element = ( <h1>Hello {shit(name)}! My name is Sergej. 
-//               Glad to see you!</h1> );
-
-// ReactDOM.render(
-//   element, document.getElementById('root')
-// );
-
-
-
-// time rect
-// function tick() {
-//   const elem = ( 
-//     <div>
-//       <h1>Hello Date!</h1>
-//       <h2>Now is {new Date().toLocaleTimeString()}.</h2>
-//     </div>
-//   )
-//   ReactDOM.render(elem, document.getElementById('root'));
-// }
-
-// function Clock(props) {
-//   return ( 
-//     <div>
-//       <h1>Hello Date!</h1>
-//       <h2>Now is {props.date.toLocaleTimeString()}.</h2>
-//     </div>
-//   )
-// }
-
-// function tick() {
-//   ReactDOM.render(
-//     <Clock date={new Date()} />,
-//     document.getElementById('root')
-//   );
-// }
-
-// setInterval(tick, 1000);
-
-// new clock
-
-
-
-// class Clock extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {date: new Date()};
-//   }
-
-//   componentDidMount() {
-//     this.timer = setInterval(
-//       () => this.tick(), 1000
-//     );
-//   }
-
-//   componentWillUnmount() {
-//     clearInterval(this.timer);
-//   }
-
-//   tick() {
-//     this.setState({
-//       date: new Date()
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div className='timer-block'>
-//         <h2 className='timer-block_timer'>The real time is: {this.state.date.toLocaleTimeString()}</h2>
-//       </div>
-//     );
-//   }
-
-// }
-
-// ReactDOM.render(
-//   <Clock />,
-//   document.getElementById('root')
-// );
-
-
-
-// component(props) rect
-// class AddP extends React.Component {
-//     render() {
-//         return <h2>Hey you, {this.props.phrase}</h2>
-//       }
-//     }
-    
-    // function AddP(props) {
-    //   return <h2>Hey you, {props.phrase}</h2>;
-    // }
-
-    // function App() {
-    //   return (
-    //     <div>
-    //     <AddP phrase="idi dalei"/>
-    //     <AddP phrase="idi pobach"/>
-    //     <AddP phrase="idi szadu"/>
-    //     </div>
-    //   );
-    // }
-
-    // const elem = <AddP phrase="idi dalei"/>;
-    
-    // ReactDOM.render(<App />, document.getElementById('root'));
-
-
-
-// извлечение компонентов
-
-// function Comment(props) {
-//   return (
-//     <div className="Comment">
-//       <UserInfo user = {props.author}/>
-//       <div className="Comment-text">
-//         {props.text}
-//       </div>
-//       <div className="Comment-date">
-//         {formatDate(props.date)}
-//       </div>
-//     </div>
-//   );
-// }
-
-// function Avatar(props) {
-//   return (
-//     <img className="Avatar"
-//       src={props.author.avatarUrl}
-//       alt={props.author.name}
-//     />
-//   )
-// }
-
-// function UserInfo(props) {
-//   return(<div className="UserInfo">
-//     <Avatar user = {props.user}/>
-//      <div className="UserInfo-name">
-//       {props.author.name}
-//     </div>
-//   </div>
-//   )
-// }
-
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}
