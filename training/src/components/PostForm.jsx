@@ -12,7 +12,7 @@ const PostForm = (props) => {
         e.preventDefault();
         if(title !== '' & body !== '') {
             const newPost = {
-                id: props.posts.length + 1,
+                id: Date.now(),
                 title: title, 
                 body: body,
             }

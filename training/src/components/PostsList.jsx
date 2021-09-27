@@ -6,7 +6,7 @@ const PostsList = ({title, setPosts, posts}) => {
 
     return (
         <div>
-            <div className='title'>{title}</div>
+            <div className='title'>{title}</div> 
             {
                 posts.map ((post, index) => 
                     <Post post={post} key={post.id} posts={posts} number={index + 1} setPosts={setPosts} />

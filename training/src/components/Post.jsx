@@ -11,13 +11,13 @@ const Post = ({posts, setPosts, ...props}) => {
     return (
         <div className='post'>
         <div className='post__content'>
-            <strong>{props.number} {props.post.title}</strong>
-            <div>
+            <strong className='post-title'>{props.number} {props.post.title}</strong>
+            <div className='post-subtitle'>
                 {props.post.body}
             </div>
         </div>
         <div className='post__btns'>
-            <button onClick={removePost}>Delete posts</button>
+            <button className='post-btn' onClick={removePost}>Delete posts</button>
         </div>
     </div>
     );
