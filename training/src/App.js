@@ -18,7 +18,12 @@ function App() {
     return (
         <div className='App'>
             <PostForm posts={posts} setPosts={setPosts} />
-            <PostsList posts={posts} title='Posts list'  setPosts={setPosts} />
+
+            { posts.length > 0
+                ? <PostsList posts={posts} title='Posts list'  setPosts={setPosts} />
+                : <h1> Your list is empty </h1> 
+            }
+
         </div>
     );
 }

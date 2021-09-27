@@ -8,8 +8,8 @@ const PostsList = ({title, setPosts, posts}) => {
         <div>
             <div className='title'>{title}</div>
             {
-                posts.map (post => 
-                    <Post post={post} key={post.id} posts={posts} setPosts={setPosts} />
+                posts.map ((post, index) => 
+                    <Post post={post} key={post.id} posts={posts} number={index + 1} setPosts={setPosts} />
                 )
             }
         </div>

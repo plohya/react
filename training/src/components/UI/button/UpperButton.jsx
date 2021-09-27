@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './UpperButton.module.css';
 
-const Button = ({children, ...props}) => {
+const UpperButton = ({children, ...props}) => {
     return (
         <button {...props} className={classes.UpperBtn}>
             {children}
@@ -9,4 +9,4 @@ const Button = ({children, ...props}) => {
     );
 };
 
-export default Button;
+export default UpperButton;
